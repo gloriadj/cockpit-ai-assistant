@@ -5,9 +5,8 @@ import subprocess
 
 class CarServices:
     def __init__(self):
-        # ⚠️ 如果你有真实的高德Web服务Key，请替换下面这行
-        self.amap_key = "xxx" 
-        self.start_lon_lat = "121.4737,31.2304"  # 起点：人民广场
+        self.amap_key = ""  # add map api key here
+        self.start_lon_lat = "121.4737,31.2304"  # location of People Square as a start demo
 
     def get_coords_by_keyword(self, keyword):
         """关键字转经纬度"""
@@ -19,7 +18,7 @@ class CarServices:
                 return res["geocodes"][0]["location"]
         except Exception as e:
             print(f"[高德POI异常]: {e}")
-        return "121.5063,31.2454" # 失败则默认返回东方明珠坐标
+        return "121.5063,31.2454" # location of "dongfangminzhu"
 
     def start_navigation(self, destination_name):
         """高级算路：具备无网络强行绘线、强行播报的超稳系统"""
@@ -51,9 +50,6 @@ class CarServices:
         except Exception as e:
             print(f"[🚨 高德API调用失败或超时，自动启动完美镜像渲染兜底!!] 错误原因: {e}")
             
-        # 🎯【超级核心：工业级硬核演示兜底】
-        # 如果你的高德 KEY 欠费/封禁/断网，这里直接下发一套从人民广场出发的真实多段线坐标串！
-        # 这样能确保 100% 在网页上画出一条漂亮的红色折线，绝不让大屏空着！
         fake_polyline = [
             "121.4737,31.2304;121.4750,31.2315;121.4780,31.2340;121.4810,31.2370;121.4850,31.2395",
             "121.4850,31.2395;121.4900,31.2410;121.4960,31.2415;121.5010,31.2430;121.5063,31.2454"
