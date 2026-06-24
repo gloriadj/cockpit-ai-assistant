@@ -1,6 +1,12 @@
 ollama:
-  base_url: "http://localhost:11434/v1"  # Ollama local LLM port
-  model_name: "qwen2.5:14b"             # your own LLM name
+  base_url: "http://localhost:11434/v1"  # Ollama 的本地 OpenAI 兼容接口
+  model_name: "qwen2.5:14b"             # 你本地运行的 Qwen 模型名称
+
+# 本地语音识别（faster-whisper，离线免 key）
+asr:
+  model_size: "small"     # tiny / base / small / medium，small 是中文性价比之选；要更准可用 medium（更慢）
+  compute_type: "int8"    # Mac CPU 用 int8 即可
+  language: "zh"          # 中文识别
 
 map_api:
-  key: ""  # for your map api key
+  key: ""                  # 预留给未来高德地图的 Key
