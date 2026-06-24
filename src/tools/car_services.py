@@ -5,7 +5,7 @@ import subprocess
 
 class CarServices:
     def __init__(self):
-        self.amap_key = ""  # add map api key here
+        self.amap_key = ""  # add map api key here!
         self.start_lon_lat = "121.4737,31.2304"  # location of People Square as a start demo
 
     def get_coords_by_keyword(self, keyword):
